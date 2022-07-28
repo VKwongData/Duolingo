@@ -1,0 +1,1759 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.1">
+  <Nodes>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="54" y="54" width="2959" height="1088" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Clean csv test</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="1">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="79" y="448" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\vivia\Downloads\Samples for Classes\08. Alteryx Project\learning_traces.13m.csv</File>
+              <FormatSpecificOptions>
+                <HeaderRow>True</HeaderRow>
+                <IgnoreErrors>False</IgnoreErrors>
+                <AllowShareWrite>False</AllowShareWrite>
+                <ImportLine>1</ImportLine>
+                <FieldLen>254</FieldLen>
+                <SingleThreadRead>False</SingleThreadRead>
+                <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+                <Delimeter>,</Delimeter>
+                <QuoteRecordBreak>False</QuoteRecordBreak>
+                <CodePage>28591</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Load learning_traces.13m.csv</AnnotationText>
+              <DefaultAnnotationText>learning_traces.13m.csv</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="p_recall" size="254" source="File: C:\Users\vivia\Downloads\Samples for Classes\08. Alteryx Project\learning_traces.13m.csv" type="V_String" />
+                <Field name="timestamp" size="254" source="File: C:\Users\vivia\Downloads\Samples for Classes\08. Alteryx Project\learning_traces.13m.csv" type="V_String" />
+                <Field name="delta" size="254" source="File: C:\Users\vivia\Downloads\Samples for Classes\08. Alteryx Project\learning_traces.13m.csv" type="V_String" />
+                <Field name="user_id" size="254" source="File: C:\Users\vivia\Downloads\Samples for Classes\08. Alteryx Project\learning_traces.13m.csv" type="V_String" />
+                <Field name="learning_language" size="254" source="File: C:\Users\vivia\Downloads\Samples for Classes\08. Alteryx Project\learning_traces.13m.csv" type="V_String" />
+                <Field name="ui_language" size="254" source="File: C:\Users\vivia\Downloads\Samples for Classes\08. Alteryx Project\learning_traces.13m.csv" type="V_String" />
+                <Field name="lexeme_id" size="254" source="File: C:\Users\vivia\Downloads\Samples for Classes\08. Alteryx Project\learning_traces.13m.csv" type="V_String" />
+                <Field name="lexeme_string" size="254" source="File: C:\Users\vivia\Downloads\Samples for Classes\08. Alteryx Project\learning_traces.13m.csv" type="V_String" />
+                <Field name="history_seen" size="254" source="File: C:\Users\vivia\Downloads\Samples for Classes\08. Alteryx Project\learning_traces.13m.csv" type="V_String" />
+                <Field name="history_correct" size="254" source="File: C:\Users\vivia\Downloads\Samples for Classes\08. Alteryx Project\learning_traces.13m.csv" type="V_String" />
+                <Field name="session_seen" size="254" source="File: C:\Users\vivia\Downloads\Samples for Classes\08. Alteryx Project\learning_traces.13m.csv" type="V_String" />
+                <Field name="session_correct" size="254" source="File: C:\Users\vivia\Downloads\Samples for Classes\08. Alteryx Project\learning_traces.13m.csv" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="5">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+            <Position x="297" y="452" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>lexeme_string</Field>
+              <ErrorHandling>Last</ErrorHandling>
+              <RootName>lexeme_string</RootName>
+              <Delimeters value="&lt;/" />
+              <NumFields value="4" />
+              <Flags value="0" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Split lexeme_string column</AnnotationText>
+              <DefaultAnnotationText>Split lexeme_string column</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+        </Node>
+        <Node ToolID="15">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="392" y="451" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="p_recall" selected="True" />
+                <SelectField field="timestamp" selected="True" />
+                <SelectField field="delta" selected="True" rename="seconds_since_last_seen" />
+                <SelectField field="user_id" selected="True" />
+                <SelectField field="learning_language" selected="True" />
+                <SelectField field="ui_language" selected="True" />
+                <SelectField field="lexeme_id" selected="True" />
+                <SelectField field="lexeme_string" selected="False" />
+                <SelectField field="lexeme_string1" selected="True" rename="lexeme" />
+                <SelectField field="lexeme_string2" selected="True" rename="lemma" />
+                <SelectField field="lexeme_string3" selected="True" rename="part_of_speech" />
+                <SelectField field="lexeme_string4" selected="True" rename="morphological_components" />
+                <SelectField field="history_seen" selected="True" />
+                <SelectField field="history_correct" selected="True" />
+                <SelectField field="session_seen" selected="True" />
+                <SelectField field="session_correct" selected="True" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Rename and move delta and lexeme columns and remove extra columns</AnnotationText>
+              <DefaultAnnotationText>Rename and move lexeme columns and remove extra columns</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="20">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="201" y="450" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="Replace([lexeme_string],&quot;&lt;*sf&gt;&quot;,&quot;*generic lexeme&quot;)" field="lexeme_string" size="254" type="V_String" />
+                <FormulaField expression="Replace([lexeme_string],&quot;&gt;&quot;,&quot;&quot;)" field="lexeme_string" size="254" type="V_String" />
+                <FormulaField expression="Replace([lexeme_string],&quot;@&quot;,&quot;&quot;)" field="lexeme_string" size="254" type="V_String" />
+                <FormulaField expression="TitleCase([lexeme_string])" field="lexeme_string" size="254" type="V_String" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Clean lexeme_ string column</AnnotationText>
+              <DefaultAnnotationText>lexeme_string = Replace([lexeme_string],"&lt;*sf&gt;","*generic lexeme")
+lexeme_string...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="14">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="839" y="606" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="21">C:\Users\vivia\Downloads\lexeme_reference.txt</File>
+              <FormatSpecificOptions>
+                <TrimWhiteSpace>Unset</TrimWhiteSpace>
+                <LineEndStyle>Unset</LineEndStyle>
+                <AllowLongLines>Unset</AllowLongLines>
+                <CodePage>28591</CodePage>
+                <AllowShortLines>Unset</AllowShortLines>
+                <FlatFileXML>
+                  <flatfile version="1">
+                    <file eoltype="crlf" allowShortLines="t" allowLongLines="f" trimWhiteSpace="t" />
+                    <fields>
+                      <field name="Field_1" type="V_String" length="8" />
+                      <field name="Field_3" type="V_String" length="15" />
+                      <field name="Field_2" type="V_String" length="27" />
+                    </fields>
+                  </flatfile>
+                </FlatFileXML>
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Load lexeme_reference.txt</AnnotationText>
+              <DefaultAnnotationText>lexeme_reference.txt</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Field_1" size="8" source="File: C:\Users\vivia\Downloads\lexeme_reference.txt" type="V_String" />
+                <Field name="Field_3" size="15" source="File: C:\Users\vivia\Downloads\lexeme_reference.txt" type="V_String" />
+                <Field name="Field_2" size="27" source="File: C:\Users\vivia\Downloads\lexeme_reference.txt" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="21">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
+            <Position x="1007" y="464" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FieldFind>part_of_speech</FieldFind>
+              <FieldSearch>Field_1</FieldSearch>
+              <ReplaceFoundField>Field_2</ReplaceFoundField>
+              <FindMode>FindAny</FindMode>
+              <NoCase value="True" />
+              <MatchWholeWord value="True" />
+              <ReplaceMode>Replace</ReplaceMode>
+              <ReplaceMultipleFound value="True" />
+              <ReplaceAppendFields />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Find and replace part-of-speech tags with full words</AnnotationText>
+              <DefaultAnnotationText>Find and replace part-of-speech tags with full words</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFindReplace" />
+        </Node>
+        <Node ToolID="24">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+            <Position x="502" y="449" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>part_of_speech</Field>
+              <ErrorHandling>Last</ErrorHandling>
+              <RootName>part_of_speech</RootName>
+              <Delimeters value="+:" />
+              <NumFields value="2" />
+              <Flags value="0" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Split part-of-speech tag from morphological component tags</AnnotationText>
+              <DefaultAnnotationText>Split part-of-speech tag from morphological component tags</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+        </Node>
+        <Node ToolID="25">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="839" y="451" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="p_recall" selected="True" />
+                <SelectField field="timestamp" selected="True" />
+                <SelectField field="user_id" selected="True" rename="temporary_user_id" />
+                <SelectField field="learning_language" selected="True" />
+                <SelectField field="ui_language" selected="True" />
+                <SelectField field="lexeme_id" selected="True" />
+                <SelectField field="lexeme" selected="True" />
+                <SelectField field="lemma" selected="True" />
+                <SelectField field="part_of_speech1" selected="True" rename="part_of_speech" />
+                <SelectField field="number_of_morphological_components" selected="True" />
+                <SelectField field="history_seen" selected="True" />
+                <SelectField field="history_correct" selected="True" />
+                <SelectField field="session_seen" selected="True" />
+                <SelectField field="session_correct" selected="True" />
+                <SelectField field="part_of_speech" selected="False" />
+                <SelectField field="morphological_components" selected="False" />
+                <SelectField field="part_of_speech2" selected="False" />
+                <SelectField field="seconds_since_last_seen" selected="True" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Rename and move part-of-speech column and remove extra columns</AnnotationText>
+              <DefaultAnnotationText>Rename and move part-of-speech column and remove extra columns</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="31">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="1115" y="466" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="Replace([part_of_speech], &quot;Cnj&quot;, &quot;Special conjunction&quot;)" field="part_of_speech" size="254" type="V_String" />
+                <FormulaField expression="Replace([part_of_speech], &quot;Pprep&quot;, &quot;Special preposition&quot;)" field="part_of_speech" size="254" type="V_String" />
+                <FormulaField expression="Length([lexeme])" field="lexeme_length" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Clean part-of-speech column and create surface-form-length column</AnnotationText>
+              <DefaultAnnotationText>part_of_speech = Replace([part_of_speech], "Cnj", "Special conjunction")
+part_of...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="32">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+            <Position x="1218" y="460" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FieldType>Text</FieldType>
+              <Fields orderChanged="False">
+                <Field name="learning_language" />
+                <Field name="ui_language" />
+                <Field name="p_recall" selected="False" />
+                <Field name="timestamp" selected="False" />
+                <Field name="temporary_user_id" selected="False" />
+                <Field name="lexeme_id" selected="False" />
+                <Field name="lexeme" selected="False" />
+                <Field name="lemma" selected="False" />
+                <Field name="part_of_speech" selected="False" />
+                <Field name="number_of_morphological_components" selected="False" />
+                <Field name="history_seen" selected="False" />
+                <Field name="history_correct" selected="False" />
+                <Field name="session_seen" selected="False" />
+                <Field name="session_correct" selected="False" />
+                <Field name="seconds_since_last_seen" selected="False" />
+                <Field name="lexeme_length" selected="False" />
+                <Field name="*Unknown" selected="False" />
+              </Fields>
+              <CopyOutput value="False" />
+              <Expression>IF [_CurrentField_]="en" THEN "English" ELSEIF [_CurrentField_]="es" THEN "Spanish" ELSEIF [_CurrentField_]="fr" THEN "French" ELSEIF [_CurrentField_]="de" THEN "German" ELSEIF [_CurrentField_]="it" THEN "Italian" ELSEIF [_CurrentField_]="pt" THEN "Portuguese" ELSE "_ERROR" ENDIF</Expression>
+              <ChangeFieldType value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Replace abbreviations with full words in the learning_language and ui_language columns</AnnotationText>
+              <DefaultAnnotationText>IF [_CurrentField_]="en" THEN "English" ELSEIF [_CurrentField...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+        </Node>
+        <Node ToolID="35">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="611" y="450" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="ReplaceChar([morphological_components], &quot;&lt;&quot;, &quot; &quot;)" field="morphological_components" size="254" type="V_String" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Clean morphological_components column</AnnotationText>
+              <DefaultAnnotationText><![CDATA[morphological_components = ReplaceChar([morphological_components], "<", " ")
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="36">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="731" y="448" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="CountWords([morphological_components])" field="number_of_morphological_components" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText><![CDATA[Count number of morphological components
+]]></AnnotationText>
+              <DefaultAnnotationText><![CDATA[number_of_morphological_components = CountWords([morphological_components])
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="46">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2339" y="320" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="lemma" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Select columns for lemma_dim</AnnotationText>
+              <DefaultAnnotationText>Selects only lemma column</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="49">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+            <Position x="2459" y="320" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UniqueFields>
+                <Field field="lemma" />
+              </UniqueFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Only unique lemma records</AnnotationText>
+              <DefaultAnnotationText>Only unique lemma records</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+        </Node>
+        <Node ToolID="50">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2339" y="418" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="learning_language" selected="True" rename="language" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Select only learning_language column</AnnotationText>
+              <DefaultAnnotationText>Selects only learning_language column</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="51">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+            <Position x="2603" y="418" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UniqueFields>
+                <Field field="ui_language" />
+              </UniqueFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Only unique language records</AnnotationText>
+              <DefaultAnnotationText>Only unique lemma records</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+        </Node>
+        <Node ToolID="55">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2351" y="538" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="ui_language" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Select only ui_language column</AnnotationText>
+              <DefaultAnnotationText>Selects only ui_language column</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="57">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="2495" y="418" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByPos</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Combine both language columns</AnnotationText>
+              <DefaultAnnotationText>Combines both language columns</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="58">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2339" y="225" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="lexeme_id" selected="True" />
+                <SelectField field="lexeme" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Select columns for lexeme_dim</AnnotationText>
+              <DefaultAnnotationText>Selects only lexeme column</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="59">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+            <Position x="2459" y="226" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UniqueFields>
+                <Field field="lexeme_id" />
+              </UniqueFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Only unique lexeme records</AnnotationText>
+              <DefaultAnnotationText>Only unique lexeme records</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+        </Node>
+        <Node ToolID="60">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2339" y="115" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="part_of_speech" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Select columns for pos_dim</AnnotationText>
+              <DefaultAnnotationText>Selects only the part_of_speech column</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="61">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+            <Position x="2447" y="114" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UniqueFields>
+                <Field field="part_of_speech" />
+              </UniqueFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Only unique part_of_speech records</AnnotationText>
+              <DefaultAnnotationText>Only unique part_of_speech records</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+        </Node>
+        <Node ToolID="63">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="2747" y="103" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="23">odbc:DSN=Testing;UID=cis9440admin;PWD=__EncPwd1__|||pos_dim</File>
+              <Passwords>4CC5B9D69D214EEC7EC0FD4F3CAFDA35D6D7E9FE0FFADB15DB510A8C2</Passwords>
+              <FormatSpecificOptions>
+                <TransactionMessages>False</TransactionMessages>
+                <Geometry>True</Geometry>
+                <Projection />
+                <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+                <SpatialObjSize>8000</SpatialObjSize>
+                <OutputOption>Overwrite</OutputOption>
+                <PostSQL>ALTER TABLE dbo.pos_dim
+ALTER COLUMN pos_id NVARCHAR(4000) NOT NULL;
+ 
+ALTER TABLE dbo.pos_dim
+ADD PRIMARY KEY (pos_id);</PostSQL>
+                <TransactionSize>13000000</TransactionSize>
+                <TableStyle>Quoted</TableStyle>
+                <PreSQL>DROP TABLE IF EXISTS dbo.lexeme_fact
+DROP TABLE IF EXISTS dbo.learning_trace_fact</PreSQL>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Create pos_dim table</AnnotationText>
+              <DefaultAnnotationText>DSN=Testing
+Query=pos_dim</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="64">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="2555" y="212" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="23">odbc:DSN=Testing;UID=cis9440admin;PWD=__EncPwd1__|||lexeme_dim</File>
+              <Passwords>4CC5B9D69D214EEC7EC0FD4F3CAFDA35D6D7E9FE0FFADB15DB510A8C2</Passwords>
+              <FormatSpecificOptions>
+                <TransactionMessages>False</TransactionMessages>
+                <Geometry>True</Geometry>
+                <Projection />
+                <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+                <SpatialObjSize>8000</SpatialObjSize>
+                <OutputOption>Overwrite</OutputOption>
+                <PostSQL>ALTER TABLE dbo.lexeme_dim
+ALTER COLUMN lexeme_id NVARCHAR(4000) NOT NULL;
+ 
+ALTER TABLE dbo.lexeme_dim
+ADD PRIMARY KEY (lexeme_id);</PostSQL>
+                <TransactionSize>13000000</TransactionSize>
+                <TableStyle>Quoted</TableStyle>
+                <PreSQL />
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Create lexeme_dim table</AnnotationText>
+              <DefaultAnnotationText>DSN=Testing
+Query=lexeme_dim</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="65">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="2771" y="309" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="23">odbc:DSN=Testing;UID=cis9440admin;PWD=__EncPwd1__|||lemma_dim</File>
+              <Passwords>4CC5B9D69D214EEC7EC0FD4F3CAFDA35D6D7E9FE0FFADB15DB510A8C2</Passwords>
+              <FormatSpecificOptions>
+                <TransactionMessages>False</TransactionMessages>
+                <Geometry>True</Geometry>
+                <Projection />
+                <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+                <SpatialObjSize>8000</SpatialObjSize>
+                <OutputOption>Overwrite</OutputOption>
+                <PostSQL>ALTER TABLE dbo.lemma_dim
+ALTER COLUMN lemma_id NVARCHAR(4000) NOT NULL;
+
+ALTER TABLE dbo.lemma_dim
+ADD PRIMARY KEY (lemma_id);</PostSQL>
+                <TransactionSize>13000000</TransactionSize>
+                <TableStyle>Quoted</TableStyle>
+                <PreSQL />
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Create lemma_dim table</AnnotationText>
+              <DefaultAnnotationText>DSN=Testing
+Query=lemma_dim</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="66">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="2903" y="406" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="23">odbc:DSN=Testing;UID=cis9440admin;PWD=__EncPwd1__|||language_dim</File>
+              <Passwords>4CC5B9D69D214EEC7EC0FD4F3CAFDA35D6D7E9FE0FFADB15DB510A8C2</Passwords>
+              <FormatSpecificOptions>
+                <TransactionMessages>False</TransactionMessages>
+                <Geometry>True</Geometry>
+                <Projection />
+                <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+                <SpatialObjSize>8000</SpatialObjSize>
+                <OutputOption>Overwrite</OutputOption>
+                <PostSQL>ALTER TABLE dbo.language_dim
+ALTER COLUMN language_id NVARCHAR(4000) NOT NULL;
+ 
+ALTER TABLE dbo.language_dim
+ADD PRIMARY KEY (language_id);</PostSQL>
+                <TransactionSize>13000000</TransactionSize>
+                <TableStyle>Quoted</TableStyle>
+                <PreSQL />
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Create language_dim table</AnnotationText>
+              <DefaultAnnotationText>DSN=Testing
+Query=language_dim</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="67">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="2543" y="103" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="[part_of_speech]" field="pos_id" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Create pos_id</AnnotationText>
+              <DefaultAnnotationText><![CDATA[pos_id = [part_of_speech]
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="68">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="2555" y="308" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="[lemma]" field="lemma_id" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Create lemma_id</AnnotationText>
+              <DefaultAnnotationText><![CDATA[lemma_id = [lemma]
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="69">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="2711" y="406" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="[ui_language]" field="language_id" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Create language_id</AnnotationText>
+              <DefaultAnnotationText><![CDATA[language_id = [ui_language]
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="70">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="2022" y="269" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="0">C:\Users\vivia\Downloads\Samples for Classes\08. Alteryx Project\CLEAN SAMPLE learning_traces.csv</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <LineEndStyle>CRLF</LineEndStyle>
+                <Delimeter>,</Delimeter>
+                <ForceQuotes>False</ForceQuotes>
+                <HeaderRow>True</HeaderRow>
+                <CodePage>28591</CodePage>
+                <WriteBOM>True</WriteBOM>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText><![CDATA[Create new csv file for reference
+]]></AnnotationText>
+              <DefaultAnnotationText>CLEAN SAMPLE learning_traces.csv</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="71">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2359" y="1026" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="timestamp" selected="True" rename="timestamp_id" />
+                <SelectField field="user_id" selected="True" />
+                <SelectField field="lexeme_id" selected="True" />
+                <SelectField field="learning_language" selected="True" rename="language_id" />
+                <SelectField field="ui_language" selected="False" />
+                <SelectField field="lemma" selected="True" rename="lemma_id" />
+                <SelectField field="part_of_speech" selected="True" rename="pos_id" />
+                <SelectField field="lexeme" selected="True" />
+                <SelectField field="lexeme_length" selected="True" />
+                <SelectField field="number_of_morphological_components" selected="True" />
+                <SelectField field="history_seen" selected="False" />
+                <SelectField field="history_correct" selected="False" />
+                <SelectField field="seconds_since_last_seen" selected="False" />
+                <SelectField field="session_seen" selected="False" />
+                <SelectField field="session_correct" selected="False" />
+                <SelectField field="p_recall" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Select columns for lexeme_fact</AnnotationText>
+              <DefaultAnnotationText>Select columns for lexeme_fact</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="72">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="2491" y="1026" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="23">odbc:DSN=Testing;UID=cis9440admin;PWD=__EncPwd1__|||lexeme_fact</File>
+              <Passwords>4CC5B9D69D214EEC7EC0FD4F3CAFDA35D6D7E9FE0FFADB15DB510A8C2</Passwords>
+              <FormatSpecificOptions>
+                <TransactionMessages>False</TransactionMessages>
+                <Geometry>True</Geometry>
+                <Projection />
+                <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+                <SpatialObjSize>8000</SpatialObjSize>
+                <OutputOption>Overwrite</OutputOption>
+                <PostSQL><![CDATA[ALTER TABLE dbo.lexeme_fact
+ALTER COLUMN language_id NVARCHAR(4000) NOT NULL
+
+ALTER TABLE dbo.lexeme_fact
+ADD FOREIGN KEY (language_id) REFERENCES dbo.language_dim(language_id)
+
+ALTER TABLE dbo.lexeme_fact
+ALTER COLUMN lexeme_id NVARCHAR(4000) NOT NULL
+
+ALTER TABLE dbo.lexeme_fact
+ADD FOREIGN KEY (lexeme_id) REFERENCES dbo.lexeme_dim(lexeme_id)
+
+ALTER TABLE dbo.lexeme_fact
+ALTER COLUMN lemma_id NVARCHAR(4000) NOT NULL
+
+ALTER TABLE dbo.lexeme_fact
+ADD FOREIGN KEY (lemma_id) REFERENCES dbo.lemma_dim(lemma_id)
+
+ALTER TABLE dbo.lexeme_fact
+ALTER COLUMN timestamp_id NVARCHAR(4000) NOT NULL
+
+ALTER TABLE dbo.lexeme_fact
+ADD FOREIGN KEY (timestamp_id) REFERENCES dbo.timestamp_dim(timestamp_id)
+
+ALTER TABLE dbo.lexeme_fact
+ALTER COLUMN user_id NVARCHAR(4000) NOT NULL
+
+ALTER TABLE dbo.lexeme_fact
+ADD FOREIGN KEY (user_id) REFERENCES dbo.user_dim(user_id)
+
+ALTER TABLE dbo.lexeme_fact
+ALTER COLUMN pos_id NVARCHAR(4000) NOT NULL
+
+ALTER TABLE dbo.lexeme_fact
+ADD FOREIGN KEY (pos_id) REFERENCES dbo.pos_dim(pos_id)
+
+; ]]></PostSQL>
+                <TransactionSize>13000000</TransactionSize>
+                <TableStyle>Quoted</TableStyle>
+                <PreSQL />
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Create lexeme_fact table</AnnotationText>
+              <DefaultAnnotationText>DSN=Testing
+Query=lexeme_fact</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="73">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2639" y="105" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="pos_id" selected="True" />
+                <SelectField field="part_of_speech" selected="True" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Reorder columns</AnnotationText>
+              <DefaultAnnotationText>Reorder columns</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="74">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2663" y="309" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="lemma_id" selected="True" />
+                <SelectField field="lemma" selected="True" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Reorder columns</AnnotationText>
+              <DefaultAnnotationText>Reorder columns</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="75">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2795" y="406" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="language_id" selected="True" />
+                <SelectField field="ui_language" selected="True" rename="language" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Reorder columns</AnnotationText>
+              <DefaultAnnotationText>Reorder columns</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="76">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2351" y="658" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="user_id" selected="True" />
+                <SelectField field="ui_language" selected="True" rename="user_interface_language_id" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Select columns for user_dim</AnnotationText>
+              <DefaultAnnotationText>Select columns for user_dim</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="78">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="2663" y="646" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="23">odbc:DSN=Testing;UID=cis9440admin;PWD=__EncPwd1__|||user_dim</File>
+              <Passwords>4CC5B9D69D214EEC7EC0FD4F3CAFDA35D6D7E9FE0FFADB15DB510A8C2</Passwords>
+              <FormatSpecificOptions>
+                <TransactionMessages>False</TransactionMessages>
+                <Geometry>True</Geometry>
+                <Projection />
+                <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+                <SpatialObjSize>8000</SpatialObjSize>
+                <OutputOption>Overwrite</OutputOption>
+                <PostSQL>ALTER TABLE dbo.user_dim
+ALTER COLUMN user_id NVARCHAR(4000) NOT NULL;
+ 
+ALTER TABLE dbo.user_dim
+ADD PRIMARY KEY (user_id)
+
+ALTER TABLE dbo.user_dim
+ALTER COLUMN user_interface_language_id NVARCHAR(4000) NOT NULL
+
+ALTER TABLE dbo.user_dim
+ADD FOREIGN KEY (user_interface_language_id) REFERENCES dbo.language_dim(language_id);</PostSQL>
+                <TransactionSize>13000000</TransactionSize>
+                <TableStyle>Quoted</TableStyle>
+                <PreSQL />
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Create user_dim table</AnnotationText>
+              <DefaultAnnotationText>DSN=Testing
+Query=user_dim</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="80">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2447" y="658" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="user_id" selected="True" />
+                <SelectField field="user_interface_language_id" selected="True" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Reorder columns</AnnotationText>
+              <DefaultAnnotationText>Reorder columns</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="81">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2351" y="898" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="timestamp" selected="True" rename="timestamp_id" />
+                <SelectField field="user_id" selected="True" />
+                <SelectField field="learning_language" selected="True" rename="learning_language_id" />
+                <SelectField field="ui_language" selected="True" rename="user_interface_language_id" />
+                <SelectField field="lexeme_id" selected="True" />
+                <SelectField field="lemma" selected="False" />
+                <SelectField field="part_of_speech" selected="False" />
+                <SelectField field="number_of_morphological_components" selected="False" />
+                <SelectField field="history_seen" selected="True" />
+                <SelectField field="history_correct" selected="True" />
+                <SelectField field="seconds_since_last_seen" selected="True" />
+                <SelectField field="session_seen" selected="True" />
+                <SelectField field="session_correct" selected="True" />
+                <SelectField field="p_recall" selected="False" />
+                <SelectField field="lexeme" selected="False" />
+                <SelectField field="lexeme_length" selected="False" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Select columns for learning_trace_fact</AnnotationText>
+              <DefaultAnnotationText>Select columns for learning_trace_fact</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="82">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="2471" y="898" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="23">odbc:DSN=Testing;UID=cis9440admin;PWD=__EncPwd1__|||learning_trace_fact</File>
+              <Passwords>4CC5B9D69D214EEC7EC0FD4F3CAFDA35D6D7E9FE0FFADB15DB510A8C2</Passwords>
+              <FormatSpecificOptions>
+                <TransactionMessages>False</TransactionMessages>
+                <Geometry>True</Geometry>
+                <Projection />
+                <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+                <SpatialObjSize>8000</SpatialObjSize>
+                <OutputOption>Overwrite</OutputOption>
+                <PostSQL><![CDATA[ALTER TABLE dbo.learning_trace_fact
+ALTER COLUMN user_id NVARCHAR(4000) NOT NULL
+
+ALTER TABLE dbo.learning_trace_fact
+ADD FOREIGN KEY (user_id) REFERENCES dbo.user_dim(user_id)
+
+ALTER TABLE dbo.learning_trace_fact
+ALTER COLUMN user_interface_language_id NVARCHAR(4000) NOT NULL
+
+ALTER TABLE dbo.learning_trace_fact
+ADD FOREIGN KEY (user_interface_language_id) REFERENCES dbo.language_dim(language_id)
+
+ALTER TABLE dbo.learning_trace_fact
+ALTER COLUMN learning_language_id NVARCHAR(4000) NOT NULL
+
+ALTER TABLE dbo.learning_trace_fact
+ADD FOREIGN KEY (learning_language_id) REFERENCES dbo.language_dim(language_id)
+
+ALTER TABLE dbo.learning_trace_fact
+ALTER COLUMN lexeme_id NVARCHAR(4000) NOT NULL
+
+ALTER TABLE dbo.learning_trace_fact
+ADD FOREIGN KEY (lexeme_id) REFERENCES dbo.lexeme_dim(lexeme_id)
+
+ALTER TABLE dbo.learning_trace_fact
+ALTER COLUMN timestamp_id NVARCHAR(4000) NOT NULL
+
+ALTER TABLE dbo.learning_trace_fact
+ADD FOREIGN KEY (timestamp_id) REFERENCES dbo.timestamp_dim(timestamp_id); ]]></PostSQL>
+                <TransactionSize>13000000</TransactionSize>
+                <TableStyle>Quoted</TableStyle>
+                <PreSQL />
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Create learning_trace_fact table</AnnotationText>
+              <DefaultAnnotationText>DSN=Testing
+Query=learning_trace_fact</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="85">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BlockUntilDone.BlockUntilDone">
+            <Position x="2154" y="161" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBlockUntilDone" />
+        </Node>
+        <Node ToolID="86">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BlockUntilDone.BlockUntilDone">
+            <Position x="2171" y="430" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBlockUntilDone" />
+        </Node>
+        <Node ToolID="87">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BlockUntilDone.BlockUntilDone">
+            <Position x="2075" y="430" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBlockUntilDone" />
+        </Node>
+        <Node ToolID="88">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BlockUntilDone.BlockUntilDone">
+            <Position x="1950" y="426" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBlockUntilDone" />
+        </Node>
+        <Node ToolID="93">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1379" y="610" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="temporary_user_id" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Select only user_id column</AnnotationText>
+              <DefaultAnnotationText>Select only user_id column</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="94">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+            <Position x="1487" y="610" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UniqueFields>
+                <Field field="temporary_user_id" />
+              </UniqueFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Only unique users from file</AnnotationText>
+              <DefaultAnnotationText>Only unique users from file</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+        </Node>
+        <Node ToolID="95">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+            <Position x="1607" y="598" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FieldName>user_id</FieldName>
+              <StartValue>1</StartValue>
+              <FieldType>Int32</FieldType>
+              <FieldSize>6</FieldSize>
+              <Position>0</Position>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Create user_id</AnnotationText>
+              <DefaultAnnotationText>Create user_id</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+        </Node>
+        <Node ToolID="96">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="1711" y="474" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="temporary_user_id" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="temporary_user_id" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="True" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_user_id" selected="True" input="Right_" type="V_WString" size="11" />
+                    <SelectField field="Left_learning_language" selected="True" input="Left_" />
+                    <SelectField field="Left_ui_language" selected="True" input="Left_" />
+                    <SelectField field="Left_lexeme_id" selected="True" input="Left_" />
+                    <SelectField field="Left_lexeme" selected="True" input="Left_" />
+                    <SelectField field="Left_lemma" selected="True" input="Left_" />
+                    <SelectField field="Left_part_of_speech" selected="True" input="Left_" />
+                    <SelectField field="Left_lexeme_length" selected="True" input="Left_" type="Int64" size="8" />
+                    <SelectField field="Left_number_of_morphological_components" selected="True" input="Left_" type="Int64" size="8" />
+                    <SelectField field="Left_history_seen" selected="True" input="Left_" type="Int64" size="8" />
+                    <SelectField field="Left_history_correct" selected="True" input="Left_" type="Int64" size="8" />
+                    <SelectField field="Left_seconds_since_last_seen" selected="True" input="Left_" type="Int64" size="8" />
+                    <SelectField field="Left_session_seen" selected="True" input="Left_" type="Int64" size="8" />
+                    <SelectField field="Left_session_correct" selected="True" input="Left_" type="Int64" size="8" />
+                    <SelectField field="Left_p_recall" selected="True" input="Left_" type="Double" size="8" />
+                    <SelectField field="Right_temporary_user_id" selected="False" input="Right_" />
+                    <SelectField field="Left_temporary_user_id" selected="False" input="Left_" />
+                    <SelectField field="Left_timestamp" selected="True" input="Left_" type="Int64" size="8" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Add user_id column and update data types</AnnotationText>
+              <DefaultAnnotationText>Add user_id column and update data types</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="97">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+            <Position x="2555" y="658" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UniqueFields>
+                <Field field="user_id" />
+              </UniqueFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Only unique user ids</AnnotationText>
+              <DefaultAnnotationText>Only unique user ids</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+        </Node>
+        <Node ToolID="98">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2349" y="776" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="timestamp" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Select columns for timestamp_dim</AnnotationText>
+              <DefaultAnnotationText>Select columns for timestamp_dim</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="99">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+            <Position x="2457" y="776" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UniqueFields>
+                <Field field="timestamp" />
+              </UniqueFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Only unique timestamp records</AnnotationText>
+              <DefaultAnnotationText>Only unique part_of_speech records</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+        </Node>
+        <Node ToolID="100">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="2553" y="764" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="DATETIMEADD('1970-01-01 00:00:00', [timestamp], 'seconds')" field="timestamp_attribute" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Create timestamp attribute</AnnotationText>
+              <DefaultAnnotationText>timestamp_attribute = DATETIMEADD('1970-01-01 00:00:00', [timestamp], 'seconds')...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="101">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2673" y="764" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="timestamp" selected="True" rename="timestamp_id" type="V_WString" size="21" />
+                <SelectField field="timestamp_attribute" selected="True" rename="timestamp" type="DateTime" size="19" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Rename columns and change data types</AnnotationText>
+              <DefaultAnnotationText>Reorder columns</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="102">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="2781" y="764" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="23">odbc:DSN=Testing;UID=cis9440admin;PWD=__EncPwd1__|||timestamp_dim</File>
+              <Passwords>4CC5B9D69D214EEC7EC0FD4F3CAFDA35D6D7E9FE0FFADB15DB510A8C2</Passwords>
+              <FormatSpecificOptions>
+                <TransactionMessages>False</TransactionMessages>
+                <Geometry>True</Geometry>
+                <Projection />
+                <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+                <SpatialObjSize>8000</SpatialObjSize>
+                <OutputOption>Overwrite</OutputOption>
+                <PostSQL>ALTER TABLE dbo.timestamp_dim
+ALTER COLUMN timestamp_id NVARCHAR(4000) NOT NULL;
+ 
+ALTER TABLE dbo.timestamp_dim
+ADD PRIMARY KEY (timestamp_id);</PostSQL>
+                <TransactionSize>13000000</TransactionSize>
+                <TableStyle>Quoted</TableStyle>
+                <PreSQL />
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Create timestamp_dim table</AnnotationText>
+              <DefaultAnnotationText>DSN=Testing
+Query=timestamp_dim</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="24" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="21" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="21" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="24" Connection="Output" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="32" Connection="Output" />
+      <Destination ToolID="93" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="32" Connection="Output" />
+      <Destination ToolID="96" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="95" Connection="Output" />
+      <Destination ToolID="96" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="36" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="36" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="46" Connection="Output" />
+      <Destination ToolID="49" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="49" Connection="Unique" />
+      <Destination ToolID="68" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="50" Connection="Output" />
+      <Destination ToolID="57" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="55" Connection="Output" />
+      <Destination ToolID="57" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="51" Connection="Unique" />
+      <Destination ToolID="69" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="57" Connection="Output" />
+      <Destination ToolID="51" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="58" Connection="Output" />
+      <Destination ToolID="59" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="59" Connection="Unique" />
+      <Destination ToolID="64" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="60" Connection="Output" />
+      <Destination ToolID="61" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="61" Connection="Unique" />
+      <Destination ToolID="67" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="67" Connection="Output" />
+      <Destination ToolID="73" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="68" Connection="Output" />
+      <Destination ToolID="74" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="69" Connection="Output" />
+      <Destination ToolID="75" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="71" Connection="Output" />
+      <Destination ToolID="72" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="73" Connection="Output" />
+      <Destination ToolID="63" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="74" Connection="Output" />
+      <Destination ToolID="65" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="75" Connection="Output" />
+      <Destination ToolID="66" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="76" Connection="Output" />
+      <Destination ToolID="80" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="80" Connection="Output" />
+      <Destination ToolID="97" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="81" Connection="Output" />
+      <Destination ToolID="82" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="85" Connection="Output2" />
+      <Destination ToolID="58" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="85" Connection="Output3" />
+      <Destination ToolID="46" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="85" Connection="Output" />
+      <Destination ToolID="60" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="86" Connection="Output" />
+      <Destination ToolID="50" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="86" Connection="Output2" />
+      <Destination ToolID="76" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="86" Connection="Output3" />
+      <Destination ToolID="98" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="87" Connection="Output" />
+      <Destination ToolID="85" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="87" Connection="Output2" />
+      <Destination ToolID="86" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="87" Connection="Output3" />
+      <Destination ToolID="81" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="88" Connection="Output2" />
+      <Destination ToolID="87" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="88" Connection="Output3" />
+      <Destination ToolID="71" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="88" Connection="Output" />
+      <Destination ToolID="70" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="93" Connection="Output" />
+      <Destination ToolID="94" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="94" Connection="Unique" />
+      <Destination ToolID="95" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="96" Connection="Join" />
+      <Destination ToolID="88" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="96" Connection="Join" />
+      <Destination ToolID="55" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="97" Connection="Unique" />
+      <Destination ToolID="78" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="98" Connection="Output" />
+      <Destination ToolID="99" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="99" Connection="Unique" />
+      <Destination ToolID="100" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="100" Connection="Output" />
+      <Destination ToolID="101" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="101" Connection="Output" />
+      <Destination ToolID="102" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name><![CDATA[Data Warehousing Group Project - Tables ]]></Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="8a3bac8a-3393-4913-9c11-ec334f2bbbcd" />
+      <Telemetry>
+        <PreviousWorkflowId value="11d9667a-efa4-468d-a6ff-dc96d4a3cd90" />
+        <OriginWorkflowId value="60a26754-331f-474e-8326-f71be0ff4192" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
