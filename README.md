@@ -71,7 +71,7 @@ The “Post Create SQL Statement” option in each Output Data Tool was used to 
 
 All the steps outlined above are a repeatable Alteryx workflow that can be run in its entirety in a single run. Utilizing a personal laptop, the extraction and transformation time takes about 3 minutes when using the full dataset of around 12.8 million rows. The loading time into the database is based on internet connection and Microsoft Azure SQL Database service tier. 
 
-## Files Included in Repository:
+## Files Included in Repository
 
 <ul>
 <li><a href="https://github.com/VKwongData/Duolingo/blob/main/Data%20Warehousing%20Group%20Project%20-%20Tables.yxmd">Data Warehousing Group Project - Tables.yxmd</a>: The Alteryx workflow created for the project.</li>
