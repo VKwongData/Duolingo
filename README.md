@@ -1,6 +1,6 @@
 # Duolingo Data ETL Using Alteryx Designer
 
-This is a repository for my portion of the final project for the course CIS9440 Data Warehousing and Analytics (Spring 2022 semester) at the Zicklin School of Business. As part of Group 5, I was solely responsible for the ETL portion of the project, which involved using Alteryx Designer to clean and transform the data so that the data can be loaded into a Microsoft Azure SQL Database.
+This is a repository for my portion of the final class project for the course CIS9440 Data Warehousing and Analytics (Spring 2022 semester) at the Zicklin School of Business. As part of Group 5, I was solely responsible for the ETL portion of the class project, which involved using Alteryx Designer to clean and transform the data so that the data can be loaded into a Microsoft Azure SQL Database.
 
 ## Introduction
 
@@ -34,7 +34,7 @@ All language abbreviations in the two language attributes were also replaced wit
 
 At this point in the workflow, most of the transformations of the lexeme_string and language columns were done. 
  
-I noticed that the User IDs in the dataset were case sensitive (e.g., “u:FO” and “U:fo” would be considered different users). To take care of case insensitivity issues later in the project, a user_id attribute (numbering users from 1 onwards) was created with a unique id for each user.
+I noticed that the User IDs in the dataset were case sensitive (e.g., “u:FO” and “U:fo” would be considered different users). To take care of case insensitivity issues later in the class project, a user_id attribute (numbering users from 1 onwards) was created with a unique id for each user.
 
  ![Picture6](https://user-images.githubusercontent.com/94913441/181411972-0fa572c8-5911-4bbb-bb52-4802738bc80d.png)
 
@@ -61,7 +61,7 @@ As seen above, the language and timestamp dimensions had an extra step involved 
 <li><b>Timestamp Dimension:</b> The Formula Tool was used to convert the timestamps from a UNIX timestamp to a DateTime data type.</li>
 </ul>
 
-Lastly, below is the part of the workflow that created the two fact tables for the project:
+Lastly, below is the part of the workflow that created the two fact tables for the class project:
 
 ![Picture11](https://user-images.githubusercontent.com/94913441/181413557-b6e4d140-8132-4b36-8d37-290165a3bdd1.png)
  
@@ -74,9 +74,9 @@ All the steps outlined above are a repeatable Alteryx workflow that can be run i
 ## Files Included in Repository
 
 <ul>
-<li><a href="https://github.com/VKwongData/Duolingo/blob/main/Data%20Warehousing%20Group%20Project%20-%20Tables.yxmd">Data Warehousing Group Project - Tables.yxmd</a>: The Alteryx workflow created for the project.</li>
-<li><a href="https://github.com/VKwongData/Duolingo/blob/main/learning_traces.13m.csv">learning_traces.13m.csv</a>: The input file that has the Duolingo data. The project originally used a dataset that had approximately 12.8 million rows. Due to the original file's enormous size, the file that is in this repository contains only the first 200,000 rows of data.</li>
-<li><a href="https://github.com/VKwongData/Duolingo/blob/main/lexeme_reference.txt">lexeme_reference.txt</a>: The input file that has the definitions for the abbreviations used in the learning_traces.13m.csv file.
-<li><a href="https://github.com/VKwongData/Duolingo/blob/main/CLEAN%20SAMPLE%20learning_traces.csv">CLEAN SAMPLE learning_traces.csv</a>: An output file from the Alteryx workflow that shows the transformed data in a single csv file (excluding transformations done to create the dimension and fact tables for the database).</li>
+<li><a href="https://github.com/VKwongData/Duolingo/blob/main/Data%20Warehousing%20Group%20Project%20-%20Tables.yxmd">Data Warehousing Group Project - Tables.yxmd</a>: The Alteryx workflow created for the class project.</li>
+<li><a href="https://github.com/VKwongData/Duolingo/blob/main/learning_traces.13m.csv">learning_traces.13m.csv</a>: An input file that has a sample of the Duolingo data. The class project originally used a dataset that had approximately 12.8 million rows. Due to the original file's enormous size, the file that is in this repository contains only the first 200,000 rows of data. The Alteryx workflow works on both the file currently in the repository as well as the original file from <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/N8XJME">Harvard Dataverse.</a></li>
+<li><a href="https://github.com/VKwongData/Duolingo/blob/main/lexeme_reference.txt">lexeme_reference.txt</a>: An input file that has the definitions for the abbreviations used in the learning_traces.13m.csv file.
+<li><a href="https://github.com/VKwongData/Duolingo/blob/main/CLEAN%20SAMPLE%20learning_traces.csv">CLEAN SAMPLE learning_traces.csv</a>: An output file from the Alteryx workflow that shows the transformed sample data in a single csv file (excluding transformations done to create the dimension and fact tables for the database).</li>
 <li><a href="https://github.com/VKwongData/Duolingo/blob/main/Presentation%20-%20Selected%20Slides.pptx">Presentation - Selected Slides.pptx</a>: Selected slides from the group presentation that introduced the data and outlined the ETL process. All slides were created by me.</li>
 </ul>
