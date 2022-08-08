@@ -8,7 +8,7 @@ The dataset being processed by the Alteryx workflow is data gathered by Duolingo
 
 ## Methodology
 
-I used Alteryx Designer to transform the dataset so that the data could be readily loaded into a Microsoft Azure SQL Database as six dimension tables and two fact tables, as per the requirements of the class project. 
+For the project, students were given freedom to choose whatever tools or databases they would like to use. I used Alteryx Designer to transform the dataset so that the data could be readily loaded into a Microsoft Azure SQL Database as six dimension tables and two fact tables. I chose Alteryx Designer for the ETL process due to how easy it is to use Alteryx Designer with large datasets such as this one. I chose Microsoft Azure SQL Database for the database due to how easy it is to connect it to both Alteryx Designer and Tableau. 
 
 Below are the initial steps of our workflow:
 
